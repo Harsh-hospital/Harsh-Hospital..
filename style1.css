@@ -19,8 +19,8 @@
     background: #0a3d62;
     color: white;
     text-align: center;
-    padding: 5px;
-    font-size: 14px;
+    padding: 12px;
+
     animation: slideDown 0.8s ease;
 }
 
@@ -114,21 +114,27 @@
 @media (max-width: 768px) {
     .nav-links {
         position: absolute;
-        top: 100px;
+        top: 90px;
         right: -100%;
         flex-direction: column;
         background: white;
-        width: 200px;
-        padding: 20px;
+        width: 260px;
+        padding: 30px;
         transition: 0.3s;
+        gap: 20px;
     }
 
     .nav-links.active {
         right: 0;
     }
 
+    .nav-links a {
+        font-size: 20px;
+    }
+
     .menu-toggle {
         display: block;
+        font-size: 34px;
     }
 }
 
@@ -171,8 +177,9 @@
 }
 
 .content h1 {
-    font-size: 48px;
+    font-size: 60px;
     margin-bottom: 10px;
+    line-height: 1.2;
 }
 
 .content p {
@@ -236,16 +243,18 @@
     }
 
     .content h1 {
-        font-size: 28px;
+        font-size: 42px;
+        line-height: 1.2;
     }
 
     .content p {
-        font-size: 14px;
+        font-size: 20px;
+        line-height: 1.7;
     }
 
     .content button {
-        padding: 10px 18px;
-        font-size: 14px;
+        padding: 14px 24px;
+        font-size: 18px;
     }
 }
 
@@ -493,8 +502,8 @@
 /* Grid Layout */
 .services-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
 }
 
 /* Card */
@@ -634,9 +643,15 @@
 }
 
 .section-title {
-    font-size: 32px;
+    font-size: 50px;
     margin-bottom: 40px;
     color: #333;
+
+    @media (max-width: 768px) {
+        .section-title {
+            font-size: 28px;
+        }
+    }
 }
 
 .testimonial-container {
@@ -1193,9 +1208,15 @@
 .photo-box img {
     width: 100%;
     height: 400px;
-    /* Vertical look ke liye height zyada rakhi hai */
     object-fit: cover;
     display: block;
+
+    @media (max-width: 768px) {
+        .photo-box img {
+            height: 250px;
+        }
+    }
+
 }
 
 .caption {
@@ -1234,15 +1255,15 @@
 }
 
 .logo img {
-    max-width: 150px;
-    /* Logo ki width yahan se control karein */
+    width: 300px;
     height: auto;
-    /* Aspect ratio maintain karne ke liye */
-    display: block;
-    border-radius: 8px;
-    /* Optional: Agar aap corners thode round chahte hain */
-    transition: transform 0.3s ease;
-    /* Hover effect ke liye */
+}
+
+/* 👇 yahan add karo */
+@media (max-width: 768px) {
+    .logo img {
+        width: 180px;
+    }
 }
 
 /* Jab mouse logo par jaye toh thoda scale ho */
@@ -1257,9 +1278,11 @@
 
 /* Image ki styling */
 .logo img {
-    width: 300px;
-    /* Width ko yahan se aur kam ya zyada kar sakte hain */
-    height: auto;
+    .logo img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+    }
 }
 
 .staff-title {
@@ -1380,7 +1403,7 @@
     z-index: 9999;
 }
 
-/* Common Style */
+/* Common Button Style */
 .floating-btn a {
     width: 55px;
     height: 55px;
@@ -1392,7 +1415,60 @@
     color: white;
     text-decoration: none;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transition: 0.3s;
+    transition: 0.3s ease;
+}
+
+/* WhatsApp Button */
+.whatsapp-float {
+    background-color: #25D366;
+}
+
+/* Call Button */
+.call-float {
+    background-color: #0d47a1;
+}
+
+/* Hover Effect */
+.floating-btn a:hover {
+    transform: scale(1.15);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* 📱 Mobile Responsive */
+@media (max-width: 768px) {
+    .floating-btn {
+        right: 15px;
+        bottom: 15px;
+        gap: 10px;
+    }
+
+    .floating-btn a {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .floating-btn a::before {
+        content: '';
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(0.8);
+            opacity: 1;
+        }
+
+        100% {
+            transform: scale(1.4);
+            opacity: 0;
+        }
+    }
 }
 
 /* Call Button */
@@ -2625,4 +2701,26 @@
 .director-title {
     font-size: 18px;
     color: #777;
+}
+
+@media(max-width:768px) {
+
+    .section-title,
+    .service-title,
+    .doctor-title,
+    .contact-title,
+    .faq-title,
+    .graph-title,
+    .hsVisionTitle,
+    .saiMainTitle,
+    .saiDeptTitle {
+        font-size: 38px !important;
+        line-height: 1.3;
+    }
+
+    p {
+        font-size: 18px !important;
+        line-height: 1.8;
+    }
+
 }
